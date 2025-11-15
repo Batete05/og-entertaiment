@@ -33,7 +33,10 @@ const gamesImages = [
   "/games-entertainment/img_0444.jpg",
 ];
 const gamesVideos = [
-  "/games-entertainment/img_8075.mp4"
+  "https://res.cloudinary.com/dkwutmryn/video/upload/v1763229800/IMG_8075_iov3j9.mp4",
+  "https://res.cloudinary.com/dkwutmryn/video/upload/v1763229076/IMG_8129_w1cvcp.mov",
+  "https://res.cloudinary.com/dkwutmryn/video/upload/v1763229053/IMG_3417_urouug.mov",
+  "https://res.cloudinary.com/dkwutmryn/video/upload/v1763228896/IMG_0216_r5spl8.mov",
 ];
 const surprisesImages = [
   "/surprises/img_0245.jpg",
@@ -46,11 +49,24 @@ const teamBuildingImages = Array.from(
   (_, i) => `/team-building/img_${String(217 + i).padStart(4, "0")}.jpg`
 );
 
+// Surprises videos
+const surprisesVideos = [
+  "https://res.cloudinary.com/dkwutmryn/video/upload/v1763228997/IMG_8626_gifn50.mov",
+  "https://res.cloudinary.com/dkwutmryn/video/upload/v1763229020/IMG_8861_oyasrx.mp4",
+];
+
+// Team building videos
+const teamBuildingVideos = [
+  "https://res.cloudinary.com/dkwutmryn/video/upload/v1763229020/IMG_8861_oyasrx.mp4",
+  "https://res.cloudinary.com/dkwutmryn/video/upload/v1763228997/IMG_8626_gifn50.mov",
+];
+
 // Combine all media
 const allImages = [...gamesImages, ...surprisesImages, ...teamBuildingImages];
+const allVideos = [...gamesVideos, ...surprisesVideos, ...teamBuildingVideos];
 const allMedia = [
   ...allImages.map((src, i) => ({ src, type: MediaType.Image, id: i })),
-  ...gamesVideos.map((src, i) => ({
+  ...allVideos.map((src, i) => ({
     src,
     type: MediaType.Video,
     id: i + 1000,
@@ -148,6 +164,34 @@ export const SECTIONS_DATA: SectionData[] = [
         alt: "Entertainment event",
         span: "md:col-span-1",
       },
+      {
+        id: 114,
+        type: MediaType.Video,
+        src: "https://res.cloudinary.com/dkwutmryn/video/upload/v1763229800/IMG_8075_iov3j9.mp4",
+        alt: "Games and entertainment video",
+        span: "md:col-span-2",
+      },
+      {
+        id: 115,
+        type: MediaType.Video,
+        src: "https://res.cloudinary.com/dkwutmryn/video/upload/v1763229076/IMG_8129_w1cvcp.mov",
+        alt: "Entertainment video",
+        span: "md:col-span-2",
+      },
+      {
+        id: 116,
+        type: MediaType.Video,
+        src: "https://res.cloudinary.com/dkwutmryn/video/upload/v1763229053/IMG_3417_urouug.mov",
+        alt: "Games video",
+        span: "md:col-span-2",
+      },
+      {
+        id: 117,
+        type: MediaType.Video,
+        src: "https://res.cloudinary.com/dkwutmryn/video/upload/v1763228896/IMG_0216_r5spl8.mov",
+        alt: "Entertainment moment video",
+        span: "md:col-span-2",
+      },
     ],
   },
   {
@@ -183,6 +227,20 @@ export const SECTIONS_DATA: SectionData[] = [
         src: "/surprises/img_0250.jpg",
         alt: "Surprise moment",
         span: "md:col-span-1",
+      },
+      {
+        id: 205,
+        type: MediaType.Video,
+        src: "https://res.cloudinary.com/dkwutmryn/video/upload/v1763228997/IMG_8626_gifn50.mov",
+        alt: "Surprise video",
+        span: "md:col-span-2",
+      },
+      {
+        id: 206,
+        type: MediaType.Video,
+        src: "https://res.cloudinary.com/dkwutmryn/video/upload/v1763229020/IMG_8861_oyasrx.mp4",
+        alt: "Surprise moment video",
+        span: "md:col-span-2",
       },
     ],
   },
@@ -352,6 +410,20 @@ export const SECTIONS_DATA: SectionData[] = [
         src: "/team-building/img_0242.jpg",
         alt: "Team building moment",
         span: "md:col-span-1",
+      },
+      {
+        id: 324,
+        type: MediaType.Video,
+        src: "https://res.cloudinary.com/dkwutmryn/video/upload/v1763229020/IMG_8861_oyasrx.mp4",
+        alt: "Team building video",
+        span: "md:col-span-2",
+      },
+      {
+        id: 325,
+        type: MediaType.Video,
+        src: "https://res.cloudinary.com/dkwutmryn/video/upload/v1763228997/IMG_8626_gifn50.mov",
+        alt: "Team activity video",
+        span: "md:col-span-2",
       },
     ],
   },

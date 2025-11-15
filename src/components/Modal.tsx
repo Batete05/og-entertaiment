@@ -33,7 +33,7 @@ const MediaCard: React.FC<{ item: MediaItem }> = ({ item }) => {
   return (
     <motion.div
       className={`relative 
-         overflow-hidden shadow-lg ${
+         overflow-hidden ${
         item.span || "md:col-span-1"
       } ${isVideo ? "aspect-video" : "aspect-[3/4]"}`}
       initial={{ opacity: 0, y: 20 }}
