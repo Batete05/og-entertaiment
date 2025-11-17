@@ -272,7 +272,7 @@ export const SECTIONS_DATA: SectionData[] = [
       {
         id: 303,
         type: MediaType.Image,
-        src: "https://res.cloudinary.com/dkwutmryn/image/upload/v1763234137/img_0222_qh4gx5.jpg",
+        src: "https://res.cloudinary.com/dkwutmryn/image/upload/v1763234142/img_0225_hgympj.jpg",
         alt: "Team building event",
         span: "md:col-span-1",
       },
@@ -293,7 +293,7 @@ export const SECTIONS_DATA: SectionData[] = [
       {
         id: 306,
         type: MediaType.Image,
-        src: "https://res.cloudinary.com/dkwutmryn/image/upload/v1763234142/img_0225_hgympj.jpg",
+        src: "https://res.cloudinary.com/dkwutmryn/image/upload/v1763234137/img_0222_qh4gx5.jpg",
         alt: "Team collaboration",
         span: "md:col-span-1",
       },
@@ -314,7 +314,7 @@ export const SECTIONS_DATA: SectionData[] = [
       {
         id: 309,
         type: MediaType.Image,
-        src: "https://res.cloudinary.com/dkwutmryn/image/upload/v1763234145/img_0228_c1df6f.jpg",
+        src: "https://res.cloudinary.com/dkwutmryn/image/upload/v1763234151/img_0231_unhwew.jpg",
         alt: "Team building",
         span: "md:col-span-1",
       },
@@ -335,7 +335,7 @@ export const SECTIONS_DATA: SectionData[] = [
       {
         id: 312,
         type: MediaType.Image,
-        src: "https://res.cloudinary.com/dkwutmryn/image/upload/v1763234151/img_0231_unhwew.jpg",
+        src: "https://res.cloudinary.com/dkwutmryn/image/upload/v1763234145/img_0228_c1df6f.jpg",
         alt: "Team collaboration",
         span: "md:col-span-1",
       },
@@ -429,6 +429,49 @@ export const SECTIONS_DATA: SectionData[] = [
         src: "https://res.cloudinary.com/dkwutmryn/video/upload/v1763228997/IMG_8626_gifn50.mov",
         alt: "Team activity video",
         span: "md:col-span-2",
+      },
+    ],
+    chart: "/building.png", // Building image after first 3 photos
+    words: [
+      {
+        title: "Goal",
+        content:
+          "Every goal of a team member is success, and so that the success becomes easy we need teamwork.",
+      },
+      {
+        title: "Collaboration",
+        content:
+          "Actually it needs more than one hand for that our dream of success come true. One person can do it but more can do it better. We all have different ideas and if we put them together we can provide something big.",
+      },
+      {
+        title: "Support",
+        content:
+          "In team building support is who you have by your side and what you have by your side.",
+      },
+      {
+        title: "Training",
+        content:
+          "After everyone with their skills and maybe we choose one or two methods, so the one who are based on them will help other to know them by training them. Of course some of them are slow learners but with a team you gotta train them for a successful goal.",
+      },
+      {
+        title: "Coaching",
+        content:
+          "After we all learn and get trained basically in all team u find there is a leader or leaders so they coach you for a respectly and make u do through action.",
+      },
+      {
+        title: "Solution",
+        content:
+          "In this stage we all face things but they are hard to since good things to come need to pass through challenges or struggles and when there is no easy way u just look for a better solution.",
+      },
+      {
+        title: "Motivation",
+        content:
+          "When I do it alone I will never get one to motivate me, but when we are a group, my members will never let me fail. Either I get motivative words or even if I see them doing it will make me never fail them but we do together for the success.",
+      },
+      {
+        title: "Skills",
+        content:
+          "Our skills are different but when we put them together we can get an easy skill for we all try our skills. Then next time we choose easy one (although it will help us to learn).",
       },
     ],
   },

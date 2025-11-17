@@ -18,6 +18,8 @@ export interface SectionData {
   title: string;
   description: string;
   media: MediaItem[];
+  chart?: string; // URL or path to chart image
+  words?: Array<{ title: string; content: string }>; // Individual word items to interleave with photos
 }
 
 export interface SocialLink {

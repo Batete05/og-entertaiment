@@ -26,16 +26,15 @@ const modalVariants = {
   exit: { y: "100%", opacity: 0, transition: { duration: 0.3 } },
 };
 
-
 const MediaCard: React.FC<{ item: MediaItem }> = ({ item }) => {
   const isVideo = item.type === MediaType.Video;
 
   return (
     <motion.div
       className={`relative 
-         overflow-hidden ${
-        item.span || "md:col-span-1"
-      } ${isVideo ? "aspect-video" : "aspect-[3/4]"}`}
+         overflow-hidden ${item.span || "md:col-span-1"} ${
+        isVideo ? "aspect-video" : "aspect-[3/4]"
+      }`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -97,12 +96,111 @@ export const Modal: React.FC<ModalProps> = ({ section, onClose }) => {
               <h2 className="text-3xl md:text-4xl font-bold">
                 {section.title}
               </h2>
-              <p className="text-gray-600 max-w-4xl">{section.description}</p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {section.media.map((item) => (
-                  <MediaCard key={item.id} item={item} />
-                ))}
-              </div>
+
+              {section.id === "team-building" ? (
+                (() => {
+                  // Special layout for team-building with interleaved words and photos
+                  const imageItems = section.media.filter(
+                    (item) => item.type === MediaType.Image
+                  );
+                  const videoItems = section.media.filter(
+                    (item) => item.type === MediaType.Video
+                  );
+                  const words = section.words || [];
+
+                  // Start with first 3 photos, then building image, then interleave
+                  let photoIndex = 3;
+
+                  return (
+                    <>
+                      {/* Description */}
+                      <p className="text-gray-600 max-w-4xl">
+                        {section.description}
+                      </p>
+
+                      {/* First row of photos (3 photos) */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {imageItems.slice(0, 3).map((item) => (
+                          <MediaCard key={item.id} item={item} />
+                        ))}
+                      </div>
+
+                      {/* Building image (smaller size) */}
+                      {section.chart && (
+                        <div className="w-full max-w-2xl mx-auto">
+                          <img
+                            src={section.chart}
+                            alt="Team Building Chart"
+                            className="w-full h-auto rounded-lg"
+                          />
+                        </div>
+                      )}
+
+                      {/* Interleave: row of photos → word → row of photos → word, etc. */}
+                      {words.map((word, idx) => {
+                        const photosForThisRow = imageItems.slice(
+                          photoIndex,
+                          photoIndex + 3
+                        );
+                        photoIndex += 3;
+
+                        return (
+                          <React.Fragment key={idx}>
+                            {/* Row of photos */}
+                            {photosForThisRow.length > 0 && (
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {photosForThisRow.map((item) => (
+                                  <MediaCard key={item.id} item={item} />
+                                ))}
+                              </div>
+                            )}
+
+                            {/* Word section */}
+                            <div className="max-w-4xl">
+                              <div className="space-y-2">
+                                <h3 className="text-lg font-semibold text-black">
+                                  {word.title}
+                                </h3>
+                                <p className="text-gray-700">{word.content}</p>
+                              </div>
+                            </div>
+                          </React.Fragment>
+                        );
+                      })}
+
+                      {/* Remaining photos if any */}
+                      {photoIndex < imageItems.length && (
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {imageItems.slice(photoIndex).map((item) => (
+                            <MediaCard key={item.id} item={item} />
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Videos at the end */}
+                      {videoItems.length > 0 && (
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {videoItems.map((item) => (
+                            <MediaCard key={item.id} item={item} />
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  );
+                })()
+              ) : (
+                // Standard layout for other sections
+                <>
+                  <p className="text-gray-600 max-w-4xl">
+                    {section.description}
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {section.media.map((item) => (
+                      <MediaCard key={item.id} item={item} />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           </motion.div>
         </motion.div>
