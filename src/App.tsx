@@ -4,8 +4,10 @@ import { SECTIONS_DATA, MAIN_PAGE_IMAGES, SOCIAL_LINKS } from "./constants";
 import { SectionData, MediaType } from "./types";
 import { Modal } from "./components/Modal";
 
-const Logo = () => (
-  <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-md overflow-hidden">
+const Logo = ({ size = "w-8 h-8" }: { size?: string }) => (
+  <div
+    className={`${size} rounded-full flex items-center justify-center shadow-md overflow-hidden`}
+  >
     <img
       src="/logo.jpg"
       alt="OG Entertainment Logo"
@@ -35,18 +37,18 @@ const App: React.FC = () => {
   return (
     <>
       <div className="min-h-screen bg-white">
-        <main className="flex flex-col lg:flex-row">
+        <main className="flex flex-col lg:flex-row lg:min-h-screen">
           <motion.section
-            className="flex flex-col justify-start py-10 px-8 bg-white rounded-3xl shadow-lg/30 space-y-6 m-4 lg:m-0 lg:fixed lg:top-0 lg:left-0 lg:w-1/2 lg:h-screen lg:overflow-hidden lg:rounded-r-3xl lg:rounded-l-none lg:p-12 lg:shadow-xl"
+            className="flex flex-col justify-start py-10 px-8 bg-white rounded-3xl shadow-lg/30 space-y-6 m-4 lg:m-0 lg:w-1/2 lg:rounded-r-3xl lg:rounded-l-none lg:p-12 lg:shadow-xl"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <motion.div
               variants={itemVariants}
-              className="flex items-center gap-4 pt-6"
+              className="pt-6 flex items-center gap-4"
             >
-              <Logo />
+              <Logo size="w-16 h-16" />
               <motion.h1
                 className="text-4xl md:text-5xl font-extrabold"
                 variants={itemVariants}
@@ -88,19 +90,130 @@ const App: React.FC = () => {
                 <motion.button
                   key={section.id}
                   onClick={() => setActiveSection(section)}
-                  className="w-[400px] bg-white text-gray-900 px-6 py-3 font-semibold text-left"
+                  className="w-full max-w-[400px] bg-white text-gray-900 px-6 py-4 font-semibold text-left border border-gray-300 hover:border-gray-900 transition-all cursor-pointer shadow-sm hover:shadow-md"
                   variants={itemVariants}
                   whileHover={{
-                    scale: 1.03,
-                    backgroundColor: "#00000",
+                    scale: 1.02,
+                    backgroundColor: "#000000",
                     color: "#ffffff",
+                    borderColor: "#000000",
                   }}
-                  whileTap={{ scale: 0.97 }}
+                  whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   {section.title}
                 </motion.button>
               ))}
+            </motion.div>
+
+            {/* Phone Number */}
+            <motion.div className="pt-4 pb-4" variants={itemVariants}>
+              <a
+                href="tel:0780221169"
+                className="text-lg font-semibold text-gray-900 hover:text-gray-700 transition-colors flex items-center gap-2"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                0780221169
+              </a>
+            </motion.div>
+
+            {/* Places We've Worked With */}
+            <motion.div
+              className="pt-6 pb-4 border-t border-gray-200"
+              variants={itemVariants}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <svg
+                  className="w-5 h-5 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                Places We've Worked With
+              </h3>
+              <div className="space-y-2">
+                {[
+                  "Kigali Universe",
+                  "Queens Park",
+                  "Century Park",
+                  "Zaria Court",
+                  "Move n Pick",
+                ].map((place, index) => (
+                  <motion.div
+                    key={index}
+                    className="text-gray-700 font-medium"
+                    whileHover={{ x: 4 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    {place}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Companies We've Worked With */}
+            <motion.div
+              className="pt-6 pb-4 border-t border-gray-200"
+              variants={itemVariants}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <svg
+                  className="w-5 h-5 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+                Companies We've Worked With
+              </h3>
+              <div className="space-y-2">
+                {["Mastercard Foundation", "BRD", "Niyoflowers Shop"].map(
+                  (company, index) => (
+                    <motion.div
+                      key={index}
+                      className="text-gray-700 font-medium"
+                      whileHover={{ x: 4 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {company}
+                    </motion.div>
+                  )
+                )}
+              </div>
             </motion.div>
 
             <motion.div className="pt-4" variants={itemVariants}>
@@ -120,7 +233,7 @@ const App: React.FC = () => {
           </motion.section>
 
           <motion.section
-            className="grid grid-cols-3 gap-4 p-4 lg:ml-[50%] lg:w-1/2 lg:p-8 lg:pb-16 lg:pt-0"
+            className="grid grid-cols-3 gap-4 px-4 py-2 lg:w-1/2 lg:px-8 lg:py-4"
             variants={containerVariants}
             initial="hidden"
             animate="visible"

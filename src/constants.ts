@@ -92,10 +92,10 @@ const allMedia = [
   })),
 ];
 
-// Shuffle and select 12 random items
+// Shuffle and select 15 random items
 const shuffled = [...allMedia].sort(() => Math.random() - 0.5);
 export const MAIN_PAGE_IMAGES: MediaItem[] = shuffled
-  .slice(0, 12)
+  .slice(0, 15)
   .map((item, index) => ({
     id: index,
     type: item.type,
@@ -272,7 +272,7 @@ export const SECTIONS_DATA: SectionData[] = [
       {
         id: 303,
         type: MediaType.Image,
-        src: "https://res.cloudinary.com/dkwutmryn/image/upload/v1763234142/img_0225_hgympj.jpg",
+        src: "https://res.cloudinary.com/dkwutmryn/image/upload/v1763234142/img_0225_hgympj.jpgnpm  star",
         alt: "Team building event",
         span: "md:col-span-1",
       },
