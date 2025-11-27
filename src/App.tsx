@@ -156,7 +156,7 @@ const App: React.FC = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                Places We've Worked With
+                 Our partners
               </h3>
               <div className="space-y-2">
                 {[
@@ -198,7 +198,7 @@ const App: React.FC = () => {
                     d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                   />
                 </svg>
-                Companies We've Worked With
+                 our Clients
               </h3>
               <div className="space-y-2">
                 {["Mastercard Foundation", "BRD", "Niyoflowers Shop"].map(
